@@ -31,7 +31,6 @@ const handleSubmit = async e => {
         const decoded = jwt.decode(token)
         //set the user in the app.js state
         props.setCurrentUser(decoded)
-
     } catch(err) {
         //set message if the error is a 400
         if(err.response.status === 400) {

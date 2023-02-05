@@ -4,6 +4,7 @@ import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
 import Profile from './components/Profile.jsx'
 import Welcome from './components/Welcome.jsx'
+import styled from "styled-components";
 
 import {
   BrowserRouter as Router,
@@ -18,7 +19,7 @@ import {
 import jwt from 'jsonwebtoken'
 
 
-function App() {
+export default function App() {
   //state holds user data if the user is logged in
   const [currentUser, setCurrentUser] = useState(null)
   //if navigates away automatically log them in((if the jwt is valid))
@@ -45,6 +46,7 @@ function App() {
   }
   return (
     <Router>
+      <Wrapper>
       <header>
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
@@ -68,9 +70,13 @@ function App() {
         />
       </Switch>
       </div>
+      </Wrapper>
     </Router>
     
   );
 }
 
-export default App;
+const Wrapper = styled.nav`
+        background-color: #121D36;
+
+`
